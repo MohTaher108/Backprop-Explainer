@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Webpage</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <!-- Load MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="./static/style.css">
+</head>
+
+<body>
+   <!-- <div id="imageContainer"></div>-->
+     <div id="neural-network"></div> 
+      
+    <script src="https://d3js.org/d3.v5.js"></script>
+
+    
+  
+    <div id="page" class="page">
+        <div id="s1" class="item">
+            <!--<h1>Slide 1</h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis omnis minima, minus aliquam eligendi dolorum iusto sint quasi itaque culpa ab porro ut tenetur veniam ipsum voluptatum fuga quibusdam beatae.-->
+        </div>
+        <div class="item">
+            <h1>Slide 2</h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis omnis minima, minus aliquam eligendi dolorum iusto sint quasi itaque culpa ab porro ut tenetur veniam ipsum voluptatum fuga quibusdam beatae.
+        </div>
+        <div class="item">
+            <h1>Slide 3</h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis omnis minima, minus aliquam eligendi dolorum iusto sint quasi itaque culpa ab porro ut tenetur veniam ipsum voluptatum fuga quibusdam beatae.
+        </div>
+        <div class="item">
+            <h1>Slide 4</h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis omnis minima, minus aliquam eligendi dolorum iusto sint quasi itaque culpa ab porro ut tenetur veniam ipsum voluptatum fuga quibusdam beatae.
+        </div>
+        <button id="next">></button>
+        <button id="prev"><</button> 
+
+    </div>
+
+
+    <script type='text/javascript' src='{{ url_for("static", filename="js/constants.js") }}'></script>
+
+    <script type='text/javascript' src='{{ url_for("static", filename="js/elements.js") }}'></script>
+
+    <script type='text/javascript' src='{{ url_for("static", filename="js/page.js") }}'></script>
+
+    <script type='text/javascript' src='{{ url_for("static", filename="js/nodes.js") }}'></script>
+
+    <script type='text/javascript' src='{{ url_for("static", filename="js/paths.js") }}'></script>
+
+    <!--<script type='text/javascript' src='{{ url_for("static", filename="js/nn.js") }}'></script>-->
+
+
+    <div id="tooltip"
+        style="position: absolute; display: none; background-color: #fff; border: 1px solid #ccc; padding: 5px; border-radius: 5px; font-size: 25px;">
+    </div>
+   
+</body>
+
+</html>
