@@ -14,7 +14,7 @@ def generate_backprop_formula(edge):
     edge_type = (src_layer, dest_layer)
     layer = formulas.get(edge_type)
     formula_parts = [
-        f"\\frac{{\\partial L}}{{\\partial w_{{{src_node},{dest_node}}}^{{({layer})}}}}",
+        f"\\frac{{\\partial \\color{{red}}{{L}}}}{{\\partial w_{{{src_node},{dest_node}}}^{{({layer})}}}}",
         f"= \\frac{{\\partial L}}{{\\partial n_{{{dest_node}}}^{{({layer})}}}}",
         f"\\cdot \\frac{{\\partial n_{{{dest_node}}}^{{({layer})}}}}{{\\partial w_{{{src_node},{dest_node}}}^{{({layer})}}}}",
     ]
@@ -140,21 +140,3 @@ def expand_math(gradient):
         ]
 
     return []
-
-
-
-# gradient = '\\frac{{\\partial L}}{{\\partial n_{{1}}^{{(3)}}}}'
-# pattern = r'\\frac\{\\partial L\}\{\\partial n_\{(\w+)\}\^\{\(3\)\}\}'
-# match = re.search(pattern, gradient)
-# print(match)
-# for x in expand_formula(gradient):
-#     print(x)
-
-
-# print(x for x in generate_backprop_formula(('x_1', 'h1_1')))
-
-
-# grad = '\\frac{\\partial n_3^{(1)}}{\\partial w_{2,3}^{(1)}}'
-# print(expand_formula(gradient))
-
-# print(expand_math(gradient))

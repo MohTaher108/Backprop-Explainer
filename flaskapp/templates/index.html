@@ -7,7 +7,22 @@
     <title>My Webpage</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <!-- Load MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            startup: {
+                pageReady: () => {
+                    console.log('MathJax is ready');
+                    return MathJax.startup.defaultPageReady();
+                }
+            }
+        };
+        </script>
+    <!-- Load MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <link rel="stylesheet" href="./static/style.css">
 </head>
 
@@ -16,8 +31,9 @@
      <div id="neural-network"></div> 
       
     <script src="https://d3js.org/d3.v5.js"></script>
-
-    
+    <p>
+        \(\color{white}{}\)
+    </p>
   
     <div id="page" class="page">
         <div id="s1" class="item">
@@ -57,8 +73,8 @@
 
     <div id="tooltip"
         style="position: absolute; display: none; background-color: #fff; border: 1px solid #ccc; padding: 5px; border-radius: 5px; font-size: 25px;">
-    </div>
-   
+    </div>   
 </body>
+
 
 </html>

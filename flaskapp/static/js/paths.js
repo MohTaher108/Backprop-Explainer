@@ -210,22 +210,29 @@ appended_lines.on("mouseover", function () {
                 dropdown_sr_si[0].si = edge[1];
             }**/
             currentFormulaList = data.expression;
-            if (ogClicked == false) {
-                var p1 = "\\(" + data.expression[0] + "\\)";
-                formulaContainer.html(p1);
-                MathJax.typeset([formulaContainer.node()]);
-                formulaContainer.datum({ latex: p1, clicked: false })
-
-                var p2 = "\\(" + data.expression[1] + "\\)";
-                formulaContainerUpstream.html(p2);
-                MathJax.typeset([formulaContainerUpstream.node()]);
-                formulaContainerUpstream.datum({ latex: p2, clicked: false })
-
-                var p3 = "\\(" + data.expression[2] + "\\)";
-                formulaContainerLocal.html(p3);
-                MathJax.typeset([formulaContainerLocal.node()]);
-                formulaContainerLocal.datum({ latex: p3, clicked: false })
-            }
+            MathJax.startup.promise.then(() => {
+                // Your code that uses MathJax here
+            
+                if (ogClicked == false) {
+                    console.log(data.expression);
+            
+                    // Batch updates
+                    var p1 = "\\(" + data.expression[0] + "\\)";
+                    formulaContainer.html(p1);
+                    formulaContainer.datum({ latex: p1, clicked: false });
+            
+                    var p2 = "\\(" + data.expression[1] + "\\)";
+                    formulaContainerUpstream.html(p2);
+                    formulaContainerUpstream.datum({ latex: p2, clicked: false });
+            
+                    var p3 = "\\(" + data.expression[2] + "\\)";
+                    formulaContainerLocal.html(p3);
+                    formulaContainerLocal.datum({ latex: p3, clicked: false });
+            
+                    // Trigger MathJax typesetting for all updated elements at once
+                    MathJax.typeset([formulaContainer.node(), formulaContainerUpstream.node(), formulaContainerLocal.node()]);
+                }
+            }).catch(err => console.error('MathJax failed to load:', err));
 
         });
 
